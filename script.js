@@ -80,6 +80,8 @@ const getHistoricalData = () => {
     })
     .then((data) => {
       let chartData = buildChartData(data);
+      console.log(data);
+
       buildChart(chartData);
     });
 };
