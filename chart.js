@@ -1,5 +1,7 @@
 const buildChartData = (data) => {
   let chartData = [];
+  let chartDeathData = [];
+
   for (let date in data.cases) {
     let newDataPoint = {
       x: date,
@@ -7,6 +9,16 @@ const buildChartData = (data) => {
     };
     chartData.push(newDataPoint);
   }
+  // for (let date in data.deaths) {
+  //   let newDataPoint = {
+  //     x: date,
+  //     y: data.deaths[date],
+  //   };
+  //   chartDeathData.push(newDataPoint);
+  // }
+  // console.log(data);
+  // console.log(chartDeathData);
+
   return chartData;
 };
 
@@ -46,7 +58,7 @@ const buildChart = (chartData) => {
       datasets: [
         {
           label: "Total Cases",
-          backgroundColor: "#1d2c4d",
+          // backgroundColor: "#1d2c4d",
           borderColor: "#1d2c4d",
           data: chartData,
         },
