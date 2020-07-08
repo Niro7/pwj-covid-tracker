@@ -1,7 +1,7 @@
+let chartData = [];
+let chartRecoveredData = [];
+let chartDeathData = [];
 const buildChartData = (data) => {
-  let chartData = [];
-  let chartDeathData = [];
-
   for (let date in data.cases) {
     let newDataPoint = {
       x: date,
@@ -9,15 +9,25 @@ const buildChartData = (data) => {
     };
     chartData.push(newDataPoint);
   }
-  // for (let date in data.deaths) {
-  //   let newDataPoint = {
-  //     x: date,
-  //     y: data.deaths[date],
-  //   };
-  //   chartDeathData.push(newDataPoint);
-  // }
-  // console.log(data);
-  // console.log(chartDeathData);
+
+  for (let date in data.deaths) {
+    let newDataPoint = {
+      x: date,
+      y: data.deaths[date],
+    };
+    chartDeathData.push(newDataPoint);
+  }
+  for (let date in data.recovered) {
+    let newDataPoint = {
+      x: date,
+      y: data.recovered[date],
+    };
+    chartRecoveredData.push(newDataPoint);
+  }
+  console.log(data);
+  console.log(data.recovered);
+
+  console.log(chartRecoveredData);
 
   return chartData;
 };
@@ -45,7 +55,8 @@ const buildPieChart = (data) => {
   });
 };
 
-const buildChart = (chartData) => {
+const buildChart = (data) => {
+  buildChartData(data);
   console.log("All if good");
   var timeFormat = "MM/DD/YY";
   var ctx = document.getElementById("myChart").getContext("2d");
@@ -61,6 +72,18 @@ const buildChart = (chartData) => {
           // backgroundColor: "#1d2c4d",
           borderColor: "#1d2c4d",
           data: chartData,
+        },
+        {
+          label: "Recovered",
+          // backgroundColor: "#1d2c4d",
+          borderColor: "#7dd71d",
+          data: chartRecoveredData,
+        },
+        {
+          label: "Deaths",
+          // backgroundColor: "#1d2c4d",
+          borderColor: "#fb4443",
+          data: chartDeathData,
         },
       ],
     },
