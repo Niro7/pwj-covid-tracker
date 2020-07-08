@@ -79,10 +79,10 @@ const getHistoricalData = () => {
       return response.json();
     })
     .then((data) => {
-      let chartData = buildChartData(data);
-      console.log(data);
+      let chartData = buildChartData(data); //Why when console logged it's giving data?
+      console.log(data.cases);
 
-      buildChart(chartData);
+      buildChart(chartData); //Why when console logged it's undefined? and not giving data?
     });
 };
 
