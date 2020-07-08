@@ -80,8 +80,17 @@ const getHistoricalData = () => {
     })
     .then((data) => {
       let chartData = buildChartData(data); //Why when console logged it's giving data?
-      console.log(data.cases);
-
+      // console.log(data.cases);
+      // console.log(data);
+      for (let title in data) {
+        for (let date in data[title]) {
+          let dataPoint = {
+            x: date,
+            y: data[title][date],
+          };
+          // console.log(dataPoint); //Access all data points at once for cases, recovered and deaths
+        }
+      }
       buildChart(chartData); //Why when console logged it's undefined? and not giving data?
     });
 };
