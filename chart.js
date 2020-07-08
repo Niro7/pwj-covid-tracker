@@ -2,6 +2,17 @@ let chartData = [];
 let chartRecoveredData = [];
 let chartDeathData = [];
 const buildChartData = (data) => {
+  // for (let title in data) {
+  //   for (let date in data[title]) {
+  //     let newDataPoint = {
+  //       x: date,
+  //       y: data[title][date],
+  //     };
+  //     // chartData.push(newDataPoint);
+  //     // console.log(newDataPoint);
+  //   }
+  // }
+
   for (let date in data.cases) {
     let newDataPoint = {
       x: date,
@@ -25,9 +36,9 @@ const buildChartData = (data) => {
     chartRecoveredData.push(newDataPoint);
   }
   console.log(data);
-  console.log(data.recovered);
+  // console.log(data.recovered);
 
-  console.log(chartRecoveredData);
+  // console.log(chartRecoveredData);
 
   return chartData;
 };
