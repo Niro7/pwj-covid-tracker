@@ -1,3 +1,6 @@
+body {
+  background-color: #f5f6fa;
+}
 .main {
   height: 100vh;
 }
@@ -68,7 +71,8 @@
   color: #eee;
 }
 .stats-container .card:hover {
-  background-color: #d3dae4;
+  background-color: rgb(100, 100, 100);
+
   cursor: pointer;
   /* box-shadow: 0 0 15px 1px #ababab; */
 }
