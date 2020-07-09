@@ -80,19 +80,19 @@ const buildChart = (data) => {
       datasets: [
         {
           label: "Total Cases",
-          // backgroundColor: "#1d2c4d",
+          backgroundColor: "#1d2c4d4b",
           borderColor: "#1d2c4d",
           data: chartData,
         },
         {
           label: "Recovered",
-          // backgroundColor: "#1d2c4d",
+          backgroundColor: "#7dd71d4b",
           borderColor: "#7dd71d",
           data: chartRecoveredData,
         },
         {
           label: "Deaths",
-          // backgroundColor: "#1d2c4d",
+          backgroundColor: "#fb44434b",
           borderColor: "#fb4443",
           data: chartDeathData,
         },
@@ -121,8 +121,11 @@ const buildChart = (data) => {
             ticks: {
               // Include a dollar sign in the ticks
               callback: function (value, index, values) {
-                return numeral(value).format("0,0");
+                return numeral(value).format("0a").toUpperCase();
               },
+            },
+            gridLines: {
+              display: false,
             },
           },
         ],
